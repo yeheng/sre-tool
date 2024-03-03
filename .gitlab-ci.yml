@@ -1,0 +1,19 @@
+image: golang:latest
+
+stages:
+  - test
+  - build
+
+format:
+  stage: test
+  script:
+    - make test
+
+compile:
+  stage: build
+  script:
+    - make clean
+    - make build
+  artifacts:
+    paths:
+      - bin
